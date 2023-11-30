@@ -10,30 +10,30 @@ RUN apt-get update && \
     postgresql \
     postgresql-contrib \
     && rm -rf /var/lib/apt/lists/*
-    
+
 # Add PHP repository
 RUN add-apt-repository ppa:ondrej/php && apt-get update
 
 # Install PHP 7.4 and required extensions
 RUN apt-get install -y \
-    php8.2 \
-    php8.2-pgsql \
-    libapache2-mod-php8.2 \
+    php7.4 \
+    php7.4-pgsql \
+    libapache2-mod-php7.4 \
     graphviz \
     aspell \
     ghostscript \
     clamav \
-    php8.2-pspell \
-    php8.2-curl \
-    php8.2-gd \
-    php8.2-intl \
-    php8.2-mysql \
-    php8.2-xml \
-    php8.2-xmlrpc \
-    php8.2-ldap \
-    php8.2-zip \
-    php8.2-soap \
-    php8.2-mbstring \
+    php7.4-pspell \
+    php7.4-curl \
+    php7.4-gd \
+    php7.4-intl \
+    php7.4-mysql \
+    php7.4-xml \
+    php7.4-xmlrpc \
+    php7.4-ldap \
+    php7.4-zip \
+    php7.4-soap \
+    php7.4-mbstring \
     && rm -rf /var/lib/apt/lists/*
 
 # Enable Apache modules
