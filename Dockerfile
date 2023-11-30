@@ -12,7 +12,7 @@ RUN apt-get update && \
 # Add PHP repository
 RUN add-apt-repository ppa:ondrej/php && apt-get update
 
-# Install PHP 8.2 and required extensions
+# Install PHP 7.4 and required extensions
 RUN apt-get install -y \
     php8.2 \
     php8.2-pgsql \
