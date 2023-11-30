@@ -7,8 +7,10 @@ RUN apt-get update && \
     apache2 \
     git \
     software-properties-common \
+    postgresql \
+    postgresql-contrib \
     && rm -rf /var/lib/apt/lists/*
-
+    
 # Add PHP repository
 RUN add-apt-repository ppa:ondrej/php && apt-get update
 
