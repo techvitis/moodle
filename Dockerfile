@@ -41,7 +41,7 @@ RUN a2enmod rewrite
 COPY . /var/www/html/moodle
 
 # Create moodledata directory
-RUN mkdir /var/moodledata && chown -R www-data:www-data /var/moodledata && chmod -R 777 /var/moodledata
+RUN mkdir /var/moodledata && chown -R www-data /var/moodledata && chmod -R 777 /var/moodledata
 
 # Set permissions for Moodle directory
 RUN chmod -R 0755 /var/www/html/moodle
