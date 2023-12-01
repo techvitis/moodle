@@ -15,7 +15,7 @@ RUN apt-get update && \
 RUN add-apt-repository ppa:ondrej/php && apt-get update
 
 # Install PHP 8.0 and required extensions
-RUN apt-get install -y \RUN apt-get install -y \
+RUN apt-get install -y \
     php8.0 \
     php8.0-pgsql \
     libapache2-mod-php8.0 \
