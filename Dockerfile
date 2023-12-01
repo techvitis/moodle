@@ -16,24 +16,24 @@ RUN add-apt-repository ppa:ondrej/php && apt-get update
 
 # Install PHP 7.4 and required extensions
 RUN apt-get install -y \
-    php7.4 \
-    php7.4-pgsql \
+    php8.0 \
+    php-pgsql \
     libapache2-mod-php7.4 \
     graphviz \
     aspell \
     ghostscript \
     clamav \
-    php7.4-pspell \
-    php7.4-curl \
-    php7.4-gd \
-    php7.4-intl \
-    php7.4-mysql \
-    php7.4-xml \
-    php7.4-xmlrpc \
-    php7.4-ldap \
-    php7.4-zip \
-    php7.4-soap \
-    php7.4-mbstring \
+    php-pspell \
+    php-curl \
+    php-gd \
+    php-intl \
+    php-mysql \
+    php-xml \
+    php-xmlrpc \
+    php-ldap \
+    php-zip \
+    php-soap \
+    php-mbstring \
     && rm -rf /var/lib/apt/lists/*
 
 # Enable Apache modules
