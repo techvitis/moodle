@@ -1,17 +1,20 @@
 # Use the official Ubuntu 20.04 image
 FROM ubuntu:20.04
 
+RUN apt-get purge $(dpkg -l | grep php| awk '{print $2}' | tr "\n" " ")
+
 # Install necessary packages
 RUN apt-get update  
 RUN apt-get install -y apache2 git  software-properties-common && rm -rf /var/lib/apt/lists/*
 
+
+
 # Add PHP repository
-RUN add-apt-repository ppa:ondrej/php && apt-get update
+RUN add-apt-repository ppa:ondrej/php 
+RUN apt-get update
 
 # Install PHP 8.0 and required extensions
 RUN apt-get install -y php8.2 
-RUN apt-get install -y postgresql-13 
-RUN apt-get install -y postgresql-contrib 
 RUN apt-get install -y php8.2-pgsql 
 RUN apt-get install -y libapache2-mod-php8.0 
 RUN apt-get install -y graphviz 
@@ -40,14 +43,12 @@ COPY . /var/www/html/moodle
 # Create moodledata directory
 RUN mkdir /var/moodledata 
 RUN chown -R www-data /var/moodledata 
-RUN  chmod -R 777 /var/moodledata
+RUN chmod -R 777 /var/moodledata
 RUN chmod -R 777 /var/www
 
 # Set permissions for Moodle directory
-RUN chmod -R 0755 /var/www/html/moodle
+RUN chmod -R 777 /var/www/html/moodle
 
-# Fix deprecated string syntax
-RUN find /var/www/html/moodle -type f -name '*.php' -exec sed -i 's/\${\([^}]*\)}/{$\1}/g' {} +
 
 # Restart Apache
 RUN service apache2 restart
