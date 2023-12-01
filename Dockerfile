@@ -2,7 +2,7 @@
 FROM ubuntu:20.04
 
 # Install necessary packages
-RUN apt-get update && 
+RUN apt-get update  
 RUN apt-get install -y apache2 git  software-properties-common && rm -rf /var/lib/apt/lists/*
 
 # Add PHP repository
@@ -10,6 +10,8 @@ RUN add-apt-repository ppa:ondrej/php && apt-get update
 
 # Install PHP 8.0 and required extensions
 RUN apt-get install -y php8.2 
+RUN apt-get postgresql-13 
+RUN apt-get postgresql-contrib 
 RUN php8.2-pgsql 
 RUN libapache2-mod-php8.0 
 RUN graphviz 
